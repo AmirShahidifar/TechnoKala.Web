@@ -1,51 +1,351 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html  lang="fa">
+<!-- Mirrored from zaira.fasitheme.ir/demos/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Mar 2025 07:49:12 GMT -->
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - TechnoKala</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/TechnoKala.styles.css" asp-append-version="true" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Zaira - قالب HTML خبری و مجله</title>
+    <meta name="description" content="Zaira - قالب HTML خبری و مجله " />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/animate.min.css" />
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css" />
+    <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="/assets/css/flaticon.css" />
+    <link rel="stylesheet" href="/assets/css/slick.css" />
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.css" />
+    <link rel="stylesheet" href="/assets/css/default.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
 </head>
+    @RenderSectionAsync("css",false)
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div id="preloader">
+        <div class="loader-inner">
+            <div id="loader">
+                <h2 id="bg-loader">زایرا<span>.</span></h2>
+                <h2 id="fg-loader">زایرا<span>.</span></h2>
+            </div>
+        </div>
+    </div>
+    <div class="darkmode-trigger">
+        <label class="modeSwitch"><input type="checkbox" /><span class="icon"></span></label>
+    </div>
+    <button class="scroll-top scroll-to-target" data-target="html"><i class="fas fa-angle-up"></i></button>
+    <header class="header-style-three">
+        <div id="header-fixed-height"></div>
+        <div class="header-top-wrap-two">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">TechnoKala</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                <div class="row align-items-center">
+                    <div class="col-lg-4">
+                        <div class="header-top-left">
+                            <div class="offcanvas-toggle">
+                                <a href="javascript:void(0)" class="menu-tigger-two"><span></span><span></span><span></span></a>
+                            </div>
+                            <div class="header-top-social">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <a href="index-3.html#"><i class="fab fa-facebook-f"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="index-3.html#"><i class="fab fa-twitter"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="index-3.html#"><i class="fab fa-instagram"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="index-3.html#"><i class="fab fa-linkedin-in"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="header-top-right">
+                            <div class="header-search-wrap header-search-wrap-two">
+                                <form >
+                                    <input type="text" placeholder="اینجا جستجو کنید . . ." /><button type="submit"><i class="flaticon-search"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sticky-header" class="menu-area menu-style-three">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="menu-wrap">
+                            <nav class="menu-nav">
+                                <div class="logo">
+                                    <a href="index.html"><img src="assets/img/logo/logo.png" alt="" /></a>
+                                </div>
+                                <div class="logo d-none">
+                                    <a href="index.html"><img src="assets/img/logo/w_logo.png" alt="" /></a>
+                                </div>
+                                <div class="navbar-wrap main-menu d-none d-lg-flex">
+                                    <ul class="navigation">
+                                        <li class="active menu-item-has-children">
+                                            <a href="index-3.html#">خانه</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="index.html">خانه 01 - پیش فرض</a></li>
+                                                <li><a href="index-2.html">خانه 02 - بازی</a></li>
+                                                <li class="active"><a href="index-3.html">خانه 03 - فن آوری</a></li>
+                                                <li><a href="index-4.html">خانه 04 - مسافرت رفتن</a></li>
+                                                <li><a href="index-5.html">خانه 05 - رمز</a></li>
+                                                <li><a href="index-6.html">خانه 06 - روزنامه</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="about.html">درباره ما</a></li>
+                                        <li class="menu-item-has-children">
+                                            <a href="index-3.html#">امکانات</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item-has-children">
+                                                    <a href="index-3.html#">یک پست چیدمان </a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="blog-details.html">یک پست 01</a></li>
+                                                        <li><a href="blog-details-two.html">یک پست 02</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="author.html">جزئیات نویسنده</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="index-3.html#">دسته بندی ها</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog.html">وبلاگ پیش فرض</a></li>
+                                                <li><a href="blog-2.html">وبلاگ چیدمان 02</a></li>
+                                                <li><a href="blog-3.html">وبلاگ چیدمان 03</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">مخاطب</a></li>
+                                    </ul>
+                                </div>
+                                <div class="header-action d-none d-md-block">
+                                    <ul class="list-wrap">
+                                        <li class="header-wishlist">
+                                            <a href="index-3.html#"><i class="flaticon-heart"></i><span>0</span></a>
+                                        </li>
+                                        <li class="header-cart">
+                                            <a href="index-3.html#"><i class="flaticon-basket"></i><span>0</span></a><strong>تومان 0.00</strong>
+                                        </li>
+                                        <li class="header-sine-in">
+                                            <a href="contact.html"><i class="flaticon-user"></i>ورود</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
+                            </nav>
+                        </div>
+                        <div class="mobile-menu">
+                            <nav class="menu-box">
+                                <div class="close-btn"><i class="fas fa-times"></i></div>
+                                <div class="nav-logo">
+                                    <a href="index.html"><img src="assets/img/logo/logo.png" alt="لوگو" /></a>
+                                </div>
+                                <div class="nav-logo d-none">
+                                    <a href="index.html"><img src="assets/img/logo/w_logo.png" alt="لوگو" /></a>
+                                </div>
+                                <div class="mobile-search">
+                                    <form action="https://zaira.fasitheme.ir/demos/index-3.html#">
+                                        <input type="text" placeholder="اینجا جستجو کنید..." /><button><i class="flaticon-search"></i></button>
+                                    </form>
+                                </div>
+                                <div class="menu-outer"></div>
+                                <div class="social-links">
+                                    <ul class="clearfix list-wrap">
+                                        <li>
+                                            <a href="index-3.html#"><i class="fab fa-facebook-f"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index-3.html#"><i class="fab fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index-3.html#"><i class="fab fa-instagram"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index-3.html#"><i class="fab fa-linkedin-in"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index-3.html#"><i class="fab fa-youtube"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="menu-backdrop"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offCanvas-wrap">
+            <div class="offCanvas-body">
+                <div class="offCanvas-toggle"><span></span><span></span></div>
+                <div class="offCanvas-content">
+                    <div class="offCanvas-logo logo">
+                        <a href="index.html" class="logo-dark"><img src="assets/img/logo/logo.png" alt="لوگو" /></a><a href="index.html" class="logo-light"><img src="assets/img/logo/w_logo.png" alt="لوگو" /></a>
+                    </div>
+                    <p>استدلال به نفع استفاده از متن پرکننده چیزی شبیه به این است: اگر در هر زمان که به آن برسید ، از هرگونه محتوای واقعی در فرآیند مشاوره استفاده می کنید.</p>
+                    <ul class="offCanvas-instagram list-wrap">
+                        <li>
+                            <a href="assets/img/blog/hr_post01.jpg" class="popup-image"><img src="assets/img/blog/hr_post01.jpg" alt="تصویر" /></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        <li>
+                            <a href="assets/img/blog/hr_post02.jpg" class="popup-image"><img src="assets/img/blog/hr_post02.jpg" alt="تصویر" /></a>
+                        </li>
+                        <li>
+                            <a href="assets/img/blog/hr_post03.jpg" class="popup-image"><img src="assets/img/blog/hr_post03.jpg" alt="تصویر" /></a>
+                        </li>
+                        <li>
+                            <a href="assets/img/blog/hr_post04.jpg" class="popup-image"><img src="assets/img/blog/hr_post04.jpg" alt="تصویر" /></a>
+                        </li>
+                        <li>
+                            <a href="assets/img/blog/hr_post05.jpg" class="popup-image"><img src="assets/img/blog/hr_post05.jpg" alt="تصویر" /></a>
+                        </li>
+                        <li>
+                            <a href="assets/img/blog/hr_post06.jpg" class="popup-image"><img src="assets/img/blog/hr_post06.jpg" alt="تصویر" /></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="offCanvas-contact">
+                    <h4 class="title">در تماس باشید</h4>
+                    <ul class="offCanvas-contact-list list-wrap">
+                        <li><i class="fas fa-envelope-open"></i><a href="mailto:info@webmail.com">info@webmail.com</a></li>
+                        <li><i class="fas fa-phone"></i><a href="tel:88899988877">888 999 888 77</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> 12/A, اخبار, ان وای سی</li>
+                    </ul>
+                    <ul class="offCanvas-social list-wrap">
+                        <li>
+                            <a href="index-3.html#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                            <a href="index-3.html#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="index-3.html#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                            <a href="index-3.html#"><i class="fab fa-youtube"></i></a>
                         </li>
                     </ul>
                 </div>
             </div>
-        </nav>
+        </div>
+        <div class="offCanvas-overlay"></div>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 1403 - TechnoKala - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    <main>
+       @RenderBody()
+    </main>
+    <footer>
+        <div class="footer-area">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-7">
+                            <div class="footer-widget">
+                                <div class="fw-logo">
+                                    <a href="index.html"><img src="assets/img/logo/w_logo.png" alt="" /></a>
+                                </div>
+                                <div class="footer-content"><p>کره قهوه ای و قهوه ای قند قهوه ای کارامل ، لبه های ترد و ضخیم و نرم و گودال های کوچک شکلات.</p></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-5 col-sm-6">
+                            <div class="footer-widget">
+                                <h4 class="fw-title">شرکت</h4>
+                                <div class="footer-link-wrap">
+                                    <ul class="list-wrap">
+                                        <li><a href="about.html">درباره ما</a></li>
+                                        <li><a href="contact.html">آشپزخانه تست</a></li>
+                                        <li><a href="contact.html">ورود به سیستم</a></li>
+                                        <li><a href="contact.html">مناسبت ها</a></li>
+                                        <li><a href="contact.html">شغل ها</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="footer-widget">
+                                <h4 class="fw-title">کمک بگیر</h4>
+                                <div class="footer-link-wrap">
+                                    <ul class="list-wrap">
+                                        <li><a href="contact.html">تماس و سؤالات متداول</a></li>
+                                        <li><a href="contact.html">بو و بازده</a></li>
+                                        <li><a href="contact.html">کارت هدیه</a></li>
+                                        <li><a href="contact.html">ثبت نام</a></li>
+                                        <li><a href="contact.html">کاتالوگ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="footer-widget">
+                                <h4 class="fw-title">کاوش کردن</h4>
+                                <div class="footer-link-wrap">
+                                    <ul class="list-wrap">
+                                        <li><a href="contact.html">فروشگاه</a></li>
+                                        <li><a href="contact.html">دستور پخت</a></li>
+                                        <li><a href="contact.html">غذا</a></li>
+                                        <li><a href="contact.html">مسافرت رفتن</a></li>
+                                        <li><a href="contact.html">خط تلفن</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="footer-widget">
+                                <h4 class="fw-title">ما را دنبال در</h4>
+                                <div class="footer-link-wrap">
+                                    <ul class="list-wrap">
+                                        <li><a href="index-3.html#">فیس بوک</a></li>
+                                        <li><a href="index-3.html#">توییتر</a></li>
+                                        <li><a href="index-3.html#">اینستاگرام</a></li>
+                                        <li><a href="index-3.html#">یوتیوب</a></li>
+                                        <li><a href="index-3.html#">پانترست</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="footer-bottom-menu">
+                                <ul class="list-wrap">
+                                    <li><a href="contact.html">سیاست حفظ حریم شخصی</a></li>
+                                    <li><a href="contact.html">اعتبار سایت</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="copyright-text">
+                                <p>© 2023 کلیه حقوق محفوظ است . توسط <a href="https://www.rtl-theme.com/author/farhamaghdasi/products/">فرهام اقدسی</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
+    <script src="/assets/js/vendor/jquery-3.6.0.min.js"></script>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/js/slick.min.js"></script>
+    <script src="/assets/js/swiper-bundle.js"></script>
+    <script src="/assets/js/ajax-form.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+         <script src="/lib/jquery-validation/dist/additional-methods.min.js"></script>
+    <partial name="_ValidationScriptsPartial.cshtml" />
+ 
 
-    @await RenderSectionAsync("Scripts", required: false)
+    @RenderSectionAsync("js", false)
 </body>
+<!-- Mirrored from zaira.fasitheme.ir/demos/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Mar 2025 07:49:20 GMT -->
 </html>

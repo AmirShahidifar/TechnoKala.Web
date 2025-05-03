@@ -1,0 +1,132 @@
+﻿@model X.PagedList.IPagedList<TechnoKala.CoreLayer.Dtos.Blogs.GetAllBlogDtos>
+@using X.PagedList.Mvc.Core
+@{
+    var blogsCategories = ViewBag.categories as List<TechnoKala.CoreLayer.Dtos.BlogsCategoryDtos>;
+}
+
+<div class="content-wrapper" style="min-height: 916.281px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            صفحه خالی
+            <small>آماده برای پروژه شما</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> خانه</a></li>
+            <li><a href="#">مثال ها</a></li>
+            <li class="active">صفحه خالی</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">جدول ریسپانسیو</h3>
+
+                        <div class="box-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+
+
+                                <div class="input-group-btn">
+                                    <a asp-action="Add" asp-controller="Blog" >
+                                        <button type="submit" class="btn btn-primary">افزودن</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form>
+                        <button type="submit">فیلتر</button>
+                        <input type="text" name="name" value="" />
+                    </form>
+                    <!-- /.box-header -->
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <tbody>
+                                <tr>
+                                    <th>نام خبر</th>
+                                    <th>نوع دسته بندی</th>
+
+                                    <th>تصویر</th>
+
+                                </tr>
+
+
+                                @foreach(var blogs in Model)
+                                {
+
+
+                                    <tr>
+                                        <td>@blogs.title</td>
+                                        <td>
+                                            @{
+                                                var catname = blogsCategories.FirstOrDefault(c => c.id == blogs.category_id);
+                                            }
+                                            @catname.name
+                                        
+                                         </td>
+
+                                        <td>
+                                            @if (!string.IsNullOrEmpty(blogs.image))
+                                            {
+                                                <img src="@blogs.image" alt="@blogs.title" style="max-width: 100px; max-height: 100px;" />
+                                            }
+                                            else
+                                            {
+                                                <img src="~/img/notimg.jfif"  style="max-width: 100px; max-height: 100px;" />
+                                            }
+                                        </td>
+
+
+                                        <td>
+                                            <a asp-controller="Blog" asp-action="Edit" asp-route-id="@blogs.id" class="btn btn-outline-primary">ویرایش</a>
+                                        </td>
+                                    </tr>
+
+
+                                }
+                            </tbody>
+                       
+                        </table>
+                        <div class="row">
+
+                            <div class="col-sm-5">
+                                <div class="dataTables_info" id="example2_info">
+                                    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+
+                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }),
+                                         new X.PagedList.Mvc.Core.PagedListRenderOptions
+                                {
+                                    DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
+                                    DisplayLinkToLastPage = PagedListDisplayMode.IfNeeded,
+                                    MaximumPageNumbersToDisplay = 5
+                                })
+                            </div>
+
+                         
+
+                        </div>
+
+                        <!-- نمایش شماره صفحه فعلی و کل -->
+                  
+
+                        <!-- محتوای جدول شما همانطور که بود -->
+
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+        <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+</div>

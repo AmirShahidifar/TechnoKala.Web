@@ -1,0 +1,68 @@
+﻿ @model TechnoKala.Areas.Panel.Model.BlogCategory.BlogCategoryViewModel 
+ @{
+    var blogsCategories = ViewBag.child as List<TechnoKala.CoreLayer.Dtos.BlogsCategoryDtos>;
+ }
+@* @model List<TechnoKala.CoreLayer.Dtos.BlogsCategoryDtos> *@
+
+<div class="content-wrapper" style="min-height: 916.281px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            صفحه خالی
+            <small>آماده برای پروژه شما</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> خانه</a></li>
+            <li><a href="#">مثال ها</a></li>
+            <li class="active">صفحه خالی</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">مثال ساده</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form asp-area="Panel" asp-controller="BlogCategory" asp-action="Add" method="post">
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">نام دسته بندی</label>
+                        <input asp-for="name"  type="text" class="form-control" id="exampleInputEmail1" placeholder="دسته بندی ">
+                        <span class="text-danger" asp-validation-for="name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label> نوع دسته بندی</label>
+                        <select asp-for="parent_id" class="form-control">
+                            <option value="null"  > دسته بندی اصلی</option>
+                            @foreach(var p in blogsCategories)
+                            {
+                                <option value="@p.id">@p.name </option>
+                                
+                            }
+                        </select>
+                        <span asp-validation-for="parent_id"></span>
+                    </div>
+              
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> مرا به خاطر بسپار
+                        </label>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">ارسال</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+</div>

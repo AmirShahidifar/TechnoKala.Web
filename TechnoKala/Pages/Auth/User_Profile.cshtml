@@ -1,0 +1,191 @@
+﻿@page
+@model TechnoKala.Pages.Auth.User_ProfileModel
+@{
+}
+@section css {
+    <style>
+        /* استایل سایدبار */
+        .user-sidebar {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+            .user-info .avatar img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .user-info .username {
+                margin-top: 10px;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .user-info .email {
+                font-size: 14px;
+                color: #666;
+            }
+
+        .user-menu {
+            list-style: none;
+            padding: 0;
+        }
+
+            .user-menu li {
+                margin: 10px 0;
+            }
+
+                .user-menu li a {
+                    display: block;
+                    padding: 10px;
+                    border-radius: 5px;
+                    color: #333;
+                    text-decoration: none;
+                    transition: background 0.3s;
+                }
+
+                    .user-menu li a:hover,
+                    .user-menu li a.active {
+                        background: #007bff;
+                        color: #fff;
+                    }
+
+        /* استایل محتوای پنل */
+        .user-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-section {
+            display: none;
+        }
+
+            .user-section.active {
+                display: block;
+            }
+
+        .profile-info p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .favorites-list p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+    </style>
+}
+@section js {
+    <script>
+                document.addEventListener('DOMContentLoaded', function () {
+            const userSections = document.querySelectorAll('.user-section');
+            const userMenuLinks = document.querySelectorAll('.user-menu a');
+
+            userMenuLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    // حذف کلاس active از همه لینک‌ها
+                    userMenuLinks.forEach(link => link.classList.remove('active'));
+
+                    // اضافه کردن کلاس active به لینک انتخاب شده
+                    this.classList.add('active');
+
+                    // مخفی کردن همه بخش‌ها
+                    userSections.forEach(section => section.classList.remove('active'));
+
+                    // نمایش بخش مربوطه
+                    const targetSection = document.querySelector(this.getAttribute('href'));
+                    targetSection.classList.add('active');
+                });
+            });
+        });
+    </script>
+}
+<section class="contact-area pt-80 pb-50">
+    <div class="container">
+        <div class="row">
+            <!-- سایدبار -->
+            <div class="col-lg-3">
+                <div class="user-sidebar">
+                    <div class="user-info">
+                        <div class="avatar">
+                            <img src="assets/img/user/avatar.jpg" alt="آواتار کاربر" />
+                        </div>
+                        <h5 class="username">نام کاربر</h5>
+                        <p class="email">user@example.com</p>
+                    </div>
+                    <ul class="user-menu">
+                        <li><a href="#profile" class="active">پروفایل</a></li>
+                        <li><a href="#favorites">علاقه‌مندی‌ها</a></li>
+                        <li><a href="#edit-profile">ویرایش پروفایل</a></li>
+                        <li><a href="#logout">خروج</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- محتوای پنل -->
+            <div class="col-lg-9">
+                <div class="user-content">
+                    <!-- بخش پروفایل -->
+                    <div id="profile" class="user-section active">
+                        <h4 class="title">پروفایل کاربری</h4>
+                        <div class="profile-info">
+                            <p><strong>نام:</strong> نام کاربر</p>
+                            <p><strong>نام خانوادگی:</strong> نام خانوادگی کاربر</p>
+                            <p><strong>ایمیل:</strong> user@example.com</p>
+                            <p><strong>تلفن:</strong> 09123456789</p>
+                        </div>
+                    </div>
+
+                    <!-- بخش علاقه‌مندی‌ها -->
+                    <div id="favorites" class="user-section">
+                        <h4 class="title">علاقه‌مندی‌ها</h4>
+                        <div class="favorites-list">
+                            <p>محصول ۱</p>
+                            <p>محصول ۲</p>
+                            <p>محصول ۳</p>
+                        </div>
+                    </div>
+
+                    <!-- بخش ویرایش پروفایل -->
+                    <div id="edit-profile" class="user-section">
+                        <h4 class="title">ویرایش پروفایل</h4>
+                        <form id="edit-profile-form" action="#" method="POST">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-grp">
+                                        <input type="text" name="first_name" placeholder="نام*" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-grp">
+                                        <input type="text" name="last_name" placeholder="نام خانوادگی*" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-grp">
+                                <input type="email" name="email" placeholder="پست الکترونیک*" required />
+                            </div>
+                            <div class="form-grp">
+                                <input type="tel" name="phone" placeholder="تلفن*" required />
+                            </div>
+                            <button type="submit" class="btn btn-two">ذخیره تغییرات</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

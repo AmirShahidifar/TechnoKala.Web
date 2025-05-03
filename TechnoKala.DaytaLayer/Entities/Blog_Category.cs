@@ -7,17 +7,14 @@ using System.Threading.Tasks;
 
 namespace TechnoKala.DaytaLayer.Entities
 {
-    public class Blog_Category
+    public class Blog_Category : BaseEntiti
     {
-        [Key]
-        public int id { get; set; }
+
         [Required]
-        public int name { get; set; }
-        [Required]
+        public string name { get; set; }
+  
         public int? parent_id { get; set; }
 
-
-
-
+    
     }
 }

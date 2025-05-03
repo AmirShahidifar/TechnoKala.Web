@@ -17,5 +17,8 @@ namespace TechnoKala.DaytaLayer.Contex
         public DbSet<Blog> blogs { get; set; }
         public DbSet<Blog_Category> blog_Categories { get; set; }
 
+        public DbSet<Users> users { get; set; }
+
+   
     }
 }

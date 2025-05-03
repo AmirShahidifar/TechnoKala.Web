@@ -1,0 +1,49 @@
+﻿@page
+@model TechnoKala.Pages.Auth.RegisterModel
+@{
+}
+
+<section class="contact-area pt-80 pb-50">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="contact-form">
+                    <h4 class="title">ثبت ‌نام</h4>
+                    <p>لطفاً اطلاعات خود را وارد کنید.</p>
+                    <form  method="POST">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-grp">
+                                    <input asp-for="firstname" type="text" required="" placeholder="نام*" />
+                                     <span asp-validation-for="firstname"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-grp">
+                                    <input type="text" asp-for="lastname" required="" placeholder="نام خانوادگی*"  />
+                                    <span asp-validation-for="lastname"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-grp">
+                            <input type="email" asp-for="email" placeholder="پست الکترونیک*"  />
+                            <span asp-validation-for="email"></span>
+                        </div>
+                        <div class="form-grp">
+                            <input type="password" asp-for="password" placeholder="رمز عبور*"  />
+                            <span asp-validation-for="password"></span>
+                        </div>
+                        <div class="form-grp">
+                            <input type="password" asp-for="confirmpasword" placeholder="تکرار رمز عبور*"  />
+                            <span asp-validation-for="confirmpasword"></span>
+                           
+                        </div>
+                        <button type="submit" class="btn btn-two">ثبت ‌نام</button>
+                    </form>
+                    <p class="ajax-response mb-0"></p>
+                    <p class="mt-3">حساب کاربری دارید؟ <a asp-page="login" >وارد شوید</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
