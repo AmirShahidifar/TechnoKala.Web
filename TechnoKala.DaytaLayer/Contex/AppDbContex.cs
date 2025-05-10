@@ -19,6 +19,8 @@ namespace TechnoKala.DaytaLayer.Contex
 
         public DbSet<Users> users { get; set; }
 
-   
+        public DbSet<Faq> faqs { get; set; }
+
+
     }
 }

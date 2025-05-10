@@ -5,6 +5,7 @@ using System;
 using System.Configuration;
 using TechnoKala.CoreLayer.Servises.Blogs;
 using TechnoKala.CoreLayer.Servises.Blogs_Categories;
+using TechnoKala.CoreLayer.Servises.Faqs;
 using TechnoKala.CoreLayer.Servises.Users;
 using TechnoKala.DaytaLayer.Contex;
 
@@ -18,7 +19,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IUserService , UserService>();
 builder.Services.AddScoped<IBlogs_CategoryService,BlogsCtegoryService>();
 builder.Services.AddScoped<IBlogsService, BlogsService>();
-builder.Services.AddScoped<IAdminService, AdminService>();
+builder.Services.AddScoped<IFaqService, FaqService>();
+
 
 builder.Services.AddDbContext<AppDbContex>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));

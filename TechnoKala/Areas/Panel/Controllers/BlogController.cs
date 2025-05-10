@@ -7,7 +7,7 @@ using TechnoKala.DaytaLayer.Entities;
 
 namespace TechnoKala.Areas.Panel.Controllers
 {
-    [Area("panel")]
+    [Area("Panel")]
     public class BlogController : Controller
     {
         private readonly IBlogsService _blogsService;

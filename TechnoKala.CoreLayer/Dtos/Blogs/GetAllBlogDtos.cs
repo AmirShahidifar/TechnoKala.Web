@@ -15,7 +15,8 @@ namespace TechnoKala.CoreLayer.Dtos.Blogs
 
         public string image { get; set; }
 
-        public string description { get; set; }
+       public string description { get; set;  }
+      
 
         public string? slug { get; set; }
     }
