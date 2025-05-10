@@ -32,7 +32,17 @@ namespace TechnoKala.CoreLayer.Servises.Faqs
         }
         public OperationResult EditFaq(EditFaqDtos command)
         {
-            throw new NotImplementedException();
+            var faq = _contex.faqs.FirstOrDefault(b => b.id == command.id);
+
+            if (faq == null)
+
+                OperationResult.NotFound();
+
+            faq.title = command.title;
+            faq.description = command.description;
+            faq.created_at = DateTime.Now;
+            _contex.SaveChanges();
+            return OperationResult.Success();
         }
 
         public IPagedList<FaqDtos> FaqDtos(int pageNumber, int pageSize)
@@ -52,7 +62,16 @@ namespace TechnoKala.CoreLayer.Servises.Faqs
 
         public FaqDtos GetFaqBy(int id)
         {
-            throw new NotImplementedException();
+            var faqs = _contex.faqs.FirstOrDefault(b => b.id == id);
+            return faqs == null ? null : new FaqDtos
+            {
+                id = faqs.id,
+            
+                title = faqs.title,
+      
+                description = faqs.description,
+              
+            };
         }
     }
 }

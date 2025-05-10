@@ -40,5 +40,44 @@ namespace TechnoKala.Areas.Panel.Controllers
             var resault = _faqService.CreateFaq(faqViewModel.Map());
             return RedirectToAction("Index");
         }
+
+        public IActionResult Edit(int id)
+        {
+            var faq = _faqService.GetFaqBy(id);
+
+            var model = new Areas.Panel.Model.Faq.EditViewModel()
+            {
+                id = faq.id,
+                title = faq.title,
+                description = faq.description,
+            };
+            return View(model);
+
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, Areas.Panel.Model.Faq.EditViewModel editmodel)
+        {
+            if (editmodel == null)
+            {
+                ModelState.AddModelError("", "مدل ارسال شده نال است.");
+                return View();
+            }
+            var resault = _faqService.EditFaq(new CoreLayer.Dtos.Faqs.EditFaqDtos()
+            {
+                title = editmodel.title,
+                id = id,
+                description = editmodel.description,
+            });
+
+            if (resault.Status != CoreLayer.OperationResultStatus.Success)
+            {
+
+                ModelState.AddModelError(nameof(editmodel.title), resault.Message);
+                return View(editmodel);
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }
