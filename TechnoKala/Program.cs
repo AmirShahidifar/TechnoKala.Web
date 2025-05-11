@@ -16,8 +16,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IUserService , UserService>();
-builder.Services.AddScoped<IBlogs_CategoryService,BlogsCtegoryService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IBlogs_CategoryService, BlogsCtegoryService>();
 builder.Services.AddScoped<IBlogsService, BlogsService>();
 builder.Services.AddScoped<IFaqService, FaqService>();
 
@@ -60,10 +60,10 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllerRoute(
         name: "Default",
         pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-        
+
         );
 
-app.MapRazorPages();
+    app.MapRazorPages();
 });
 
 
