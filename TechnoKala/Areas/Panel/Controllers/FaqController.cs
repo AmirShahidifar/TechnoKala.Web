@@ -79,5 +79,7 @@ namespace TechnoKala.Areas.Panel.Controllers
 
             return RedirectToAction("Index");
         }
+
+     
     }
 }

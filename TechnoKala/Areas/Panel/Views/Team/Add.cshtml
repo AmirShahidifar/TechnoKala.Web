@@ -1,0 +1,65 @@
+﻿ @model TechnoKala.Areas.Panel.Model.Team.TeamViewModel
+
+
+
+<div class="content-wrapper" style="min-height: 916.281px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            صفحه خالی
+            <small>آماده برای پروژه شما</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> خانه</a></li>
+            <li><a href="#">مثال ها</a></li>
+            <li class="active">صفحه خالی</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">مثال ساده</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form asp-area="Panel" asp-controller="Team" asp-action="Add" method="post" enctype="multipart/form-data">
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1"> نام و نام خانوادگی</label>
+                        <input asp-for="fullname" type="text" class="form-control" id="exampleInputEmail1" placeholder="  نام و نام خانوادگی را وارد کنید ">
+                        <span class="text-danger" asp-validation-for="fullname"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1"> مسئولیت</label>
+                        <input asp-for="title" type="text" class="form-control" id="exampleInputEmail1" placeholder="  مسئولیت را وارد کنید ">
+                        <span class="text-danger" asp-validation-for="title"></span>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">  تصویر</label>
+                        <input asp-for="imageFile" type="file" class="form-control" id="exampleInputEmail1" placeholder=" تصویر ">
+                        <span class="text-danger" asp-validation-for="image"></span>
+                    </div>
+                  
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> مرا به خاطر بسپار
+                        </label>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">ارسال</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+</div>

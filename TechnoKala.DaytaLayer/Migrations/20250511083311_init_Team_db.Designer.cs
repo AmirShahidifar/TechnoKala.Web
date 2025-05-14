@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TechnoKala.DaytaLayer.Contex;
 
@@ -11,9 +12,11 @@ using TechnoKala.DaytaLayer.Contex;
 namespace TechnoKala.DaytaLayer.Migrations
 {
     [DbContext(typeof(AppDbContex))]
-    partial class AppDbContexModelSnapshot : ModelSnapshot
+    [Migration("20250511083311_init_Team_db")]
+    partial class init_Team_db
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,10 +33,6 @@ namespace TechnoKala.DaytaLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
-                    b.Property<string>("blog_text")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("category_id")
                         .HasColumnType("int");
 
@@ -42,8 +41,7 @@ namespace TechnoKala.DaytaLayer.Migrations
 
                     b.Property<string>("description")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("dleated_at")
                         .HasColumnType("datetime2");

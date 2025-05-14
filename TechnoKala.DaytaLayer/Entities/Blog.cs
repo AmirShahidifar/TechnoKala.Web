@@ -20,7 +20,10 @@ namespace TechnoKala.DaytaLayer.Entities
   
         public string image { get; set; }
         [Required]
+        [MaxLength(30)]
         public string description { get; set; }
+        [Required]
+        public string blog_text { get; set; }
         public string? slug { get; set; }
       
 

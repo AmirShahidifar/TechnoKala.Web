@@ -1,0 +1,126 @@
+﻿@model X.PagedList.IPagedList<TechnoKala.CoreLayer.Dtos.Teams.GetAllTeamDtos>
+@using X.PagedList.Mvc.Core
+
+
+<div class="content-wrapper" style="min-height: 916.281px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            صفحه خالی
+            <small>آماده برای پروژه شما</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> خانه</a></li>
+            <li><a href="#">مثال ها</a></li>
+            <li class="active">صفحه خالی</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">جدول ریسپانسیو</h3>
+
+                        <div class="box-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+
+
+                                <div class="input-group-btn">
+                                    <a asp-action="Add" asp-controller="Team" >
+                                        <button type="submit" class="btn btn-primary">افزودن</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form>
+                        <button type="submit">فیلتر</button>
+                        <input type="text" name="name" value="" />
+                    </form>
+                    <!-- /.box-header -->
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <tbody>
+                                <tr>
+                                    <th>نام و نام خانوادگی</th>
+                                    <th>  مسئولیت</th>
+
+                                    <th>تصویر</th>
+
+                                </tr>
+
+
+                                @foreach(var teams in Model)
+                                {
+
+
+                                    <tr>
+                                        <td>@teams.fullname</td>
+                                        <td>
+                                           @teams.title
+                                         </td>
+
+                                        <td>
+                                            @if (!string.IsNullOrEmpty(teams.image))
+                                            {
+                                                <img src="@teams.image" alt="@teams.title" style="max-width: 100px; max-height: 100px;" />
+                                            }
+                                            else
+                                            {
+                                                <img src="~/img/notimg.jfif"  style="max-width: 100px; max-height: 100px;" />
+                                            }
+                                        </td>
+
+
+                                        <td>
+                                            <a asp-controller="Team" asp-action="Edit" asp-route-id="@teams.id" class="btn btn-outline-primary">ویرایش</a>
+                                        </td>
+                                    </tr>
+
+
+                                }
+                            </tbody>
+                       
+                        </table>
+                        <div class="row">
+
+                            <div class="col-sm-5">
+                                <div class="dataTables_info" id="example2_info">
+                                    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+
+                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }),
+                                         new X.PagedList.Mvc.Core.PagedListRenderOptions
+                                {
+                                    DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
+                                    DisplayLinkToLastPage = PagedListDisplayMode.IfNeeded,
+                                    MaximumPageNumbersToDisplay = 5
+                                })
+                            </div>
+
+                         
+
+                        </div>
+
+                        <!-- نمایش شماره صفحه فعلی و کل -->
+                  
+
+                        <!-- محتوای جدول شما همانطور که بود -->
+
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+        <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+</div>

@@ -21,6 +21,8 @@ namespace TechnoKala.DaytaLayer.Contex
 
         public DbSet<Faq> faqs { get; set; }
 
+        public DbSet<Team> teams { get; set; }
+
 
     }
 }
