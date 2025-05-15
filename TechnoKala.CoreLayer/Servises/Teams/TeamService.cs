@@ -36,7 +36,7 @@ namespace TechnoKala.CoreLayer.Servises.Teams
 
             if (teams == null)
 
-                OperationResult.NotFound();
+               return OperationResult.NotFound();
 
             teams.title = command.title;
             teams.fullname = command.fullname;

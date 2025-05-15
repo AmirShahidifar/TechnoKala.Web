@@ -90,7 +90,7 @@ namespace TechnoKala.Areas.Panel.Controllers
             var resault = _teamService.EditTeamDtos(new CoreLayer.Dtos.Teams.EditTeamDtos()
             {
                 title = editmodel.title,
-        
+        id=editmodel.id,
                 fullname = editmodel.fullname,
             });
 

@@ -10,6 +10,7 @@ namespace TechnoKala.Areas.Panel.Model.Blog
         [Required(ErrorMessage = "نام را وارد کنید")]
         public string title { get; set; }
         public string description { get; set; }
+        public string blog_text { get; set; }
         public string slug { get; set; }
        
         [Display(Name = "تصویر")]
@@ -24,6 +25,7 @@ namespace TechnoKala.Areas.Panel.Model.Blog
                 title = title,
                 description = description,
                 slug = title,
+                blog_text = blog_text,
                 image = image, 
                 category_id = category_id,
 

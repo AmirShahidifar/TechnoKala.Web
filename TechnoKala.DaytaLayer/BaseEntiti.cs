@@ -14,6 +14,6 @@ namespace TechnoKala.DaytaLayer
 
         public bool is_dleated { get; set; }
         public DateTime dleated_at { get; set; }
-        public DateTime created_at { get; set; }
+        public DateTime created_at { get; set; } = DateTime.Now;
     }
 }

@@ -15,6 +15,7 @@ namespace TechnoKala.CoreLayer.Mapper
             title = createBlogsDtos.title,
             category_id = createBlogsDtos.category_id,
             description = createBlogsDtos.description,
+            blog_text = createBlogsDtos.blog_text,
             image = createBlogsDtos.image,
             slug = createBlogsDtos.slug,
 
