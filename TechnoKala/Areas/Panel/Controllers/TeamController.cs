@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Drawing;
 using TechnoKala.Areas.Panel.Model.Team;
 using TechnoKala.CoreLayer.Dtos.Teams;
 using TechnoKala.CoreLayer.Servises.Blogs;
@@ -71,6 +72,7 @@ namespace TechnoKala.Areas.Panel.Controllers
             var model = new EditViewModel()
             {
                 fullname = teams.fullname,
+              CurrentImagePath = teams.image,
                 id = teams.id,
                 title = teams.title,
                
@@ -87,17 +89,19 @@ namespace TechnoKala.Areas.Panel.Controllers
                 ModelState.AddModelError("", "مدل ارسال شده نال است.");
                 return View();
             }
-            var resault = _teamService.EditTeamDtos(new CoreLayer.Dtos.Teams.EditTeamDtos()
+
+            var result = _teamService.EditTeamDtos(new CoreLayer.Dtos.Teams.EditTeamDtos()
             {
+                id = editmodel.id,
                 title = editmodel.title,
-        id=editmodel.id,
                 fullname = editmodel.fullname,
+                ImageFile = editmodel.ImageFile, // عکس جدید
+                CurrentImagePath = editmodel.CurrentImagePath // مسیر عکس فعلی
             });
 
-            if (resault.Status != CoreLayer.OperationResultStatus.Success)
+            if (result.Status != CoreLayer.OperationResultStatus.Success)
             {
-
-                ModelState.AddModelError(nameof(editmodel.title), resault.Message);
+                ModelState.AddModelError(nameof(editmodel.title), result.Message);
                 return View(editmodel);
             }
 

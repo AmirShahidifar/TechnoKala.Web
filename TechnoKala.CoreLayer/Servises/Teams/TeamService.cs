@@ -32,15 +32,41 @@ namespace TechnoKala.CoreLayer.Servises.Teams
 
         public OperationResult EditTeamDtos(EditTeamDtos command)
         {
-            var teams = _contex.teams.FirstOrDefault(b => b.id == command.id);
+            var team = _contex.teams.FirstOrDefault(b => b.id == command.id);
+            if (team == null)
+                return OperationResult.NotFound();
 
-            if (teams == null)
+            team.title = command.title;
+            team.fullname = command.fullname;
+            team.created_at = DateTime.Now;
 
-               return OperationResult.NotFound();
+            // اگر عکس جدید ارسال شده:
+            if (command.ImageFile != null && command.ImageFile.Length > 0)
+            {
+                // پاک کردن عکس قبلی اگر وجود دارد
+                if (!string.IsNullOrEmpty(team.image))
+                {
+                    var oldImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", team.image.TrimStart('/'));
+                    if (File.Exists(oldImagePath))
+                        File.Delete(oldImagePath);
+                }
 
-            teams.title = command.title;
-            teams.fullname = command.fullname;
-            teams.created_at = DateTime.Now;
+                // ذخیره عکس جدید
+                var uploadsFolder = Path.Combine("wwwroot", "images", "teams");
+                if (!Directory.Exists(uploadsFolder))
+                    Directory.CreateDirectory(uploadsFolder);
+
+                var uniqueFileName = Guid.NewGuid().ToString() + "_" + command.ImageFile.FileName;
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    command.ImageFile.CopyTo(fileStream);
+                }
+
+                team.image = "/images/teams/" + uniqueFileName;
+            }
+
             _contex.SaveChanges();
             return OperationResult.Success();
         }

@@ -16,5 +16,6 @@ namespace TechnoKala.DaytaLayer.Entities
         public string image { get; set; }
         [Required]
         public string title { get; set; }
+   
     }
 }

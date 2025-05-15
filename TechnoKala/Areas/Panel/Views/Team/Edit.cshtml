@@ -26,7 +26,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form asp-area="Panel" asp-controller="Team" asp-action="Edit" method="post">
+            <form asp-area="Panel" asp-controller="Team" asp-action="Edit" method="post" enctype="multipart/form-data">
                 <div class="box-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">  نام و نام خانوادگی</label>
@@ -36,9 +36,21 @@
                         <label for="exampleInputEmail1"> مسئولیت  </label>
                         <input value="@Model.title" asp-for="title" type="text" class="form-control" id="exampleInputEmail1" placeholder="مسئولیت ">
                     </div>
-               
-               
 
+                    <div class="form-group">
+                        <label asp-for="ImageFile"></label>
+                        <input type="file" asp-for="ImageFile" class="form-control" />
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.CurrentImagePath))
+                    {
+                        <div class="form-group">
+                            <label>عکس فعلی:</label>
+                            <img src="@Model.CurrentImagePath" width="100" class="img-thumbnail" />
+                        </div>
+                    }
+                  
                     <div class="checkbox">
                         <label>
                             <input type="checkbox"> مرا به خاطر بسپار
