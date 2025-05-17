@@ -12,6 +12,7 @@ namespace TechnoKala.CoreLayer.Mapper
     {
         public static Blog Map(CreateBlogsDtos createBlogsDtos) => new Blog()
         {
+
             title = createBlogsDtos.title,
             category_id = createBlogsDtos.category_id,
             description = createBlogsDtos.description,

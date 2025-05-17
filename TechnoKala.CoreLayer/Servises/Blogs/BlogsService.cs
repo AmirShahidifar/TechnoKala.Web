@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Ganss.Xss;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,12 +27,29 @@ namespace TechnoKala.CoreLayer.Servises.Blogs
 
         public OperationResult CreateBlogsDtos(CreateBlogsDtos command)
         {
-           var blogs = BlogsMapper.Map(command);
-           
-         
+            var sanitizedContent = SanitizeHtml(command.blog_text);
+
+            var blogs = new Blog
+            {
+              title = command.title,
+            category_id = command.category_id,
+            description = command.description,
+            blog_text = sanitizedContent,
+            image = command.image,
+            slug = command.slug,
+            };
+
+
             _contex.blogs.Add(blogs);
             _contex.SaveChanges();
             return OperationResult.Success();
+        }
+
+        private string SanitizeHtml(string html)
+        {
+            // استفاده از کتابخانه مانند HtmlSanitizer
+            var sanitizer = new HtmlSanitizer();
+            return sanitizer.Sanitize(html);
         }
 
         public OperationResult EditBlogsDtos(EditBlogsDtos command)

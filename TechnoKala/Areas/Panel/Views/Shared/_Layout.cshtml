@@ -659,7 +659,12 @@
     <script src="/lib/jquery-validation/dist/additional-methods.min.js"></script>
     <partial name="_ValidationScriptsPartial.cshtml" />
         <script>
-        CKEDITOR.replace('ckeditor');
+        CKEDITOR.replace('blog_text
+        ',{
+             filebrowserUploadUrl: '/Blog/UploadImage', // آدرس اکشن آپلود
+            filebrowserUploadMethod: 'form',
+            height: 500
+        });
     </script>
 
 

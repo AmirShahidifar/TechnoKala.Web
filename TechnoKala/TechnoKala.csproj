@@ -2296,6 +2296,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="HtmlSanitizer" Version="9.0.884" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
       <PrivateAssets>all</PrivateAssets>
@@ -7659,6 +7660,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Panel\Views\Admins\" />
+    <Folder Include="wwwroot\uploads\ckeditor\" />
   </ItemGroup>
 
 </Project>

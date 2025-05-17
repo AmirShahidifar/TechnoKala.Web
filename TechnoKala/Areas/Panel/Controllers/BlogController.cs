@@ -105,6 +105,47 @@ namespace TechnoKala.Areas.Panel.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        [Route("/Upload/Article")]
+        public async Task<IActionResult> UploadArticle(IFormFile upload, string CKEditorFuncNum, string langCode)
+        {
+            try
+            {
+                // 1. اعتبارسنجی فایل
+                if (upload == null || upload.Length == 0)
+                    return Content("<script>window.parent.CKEDITOR.tools.callFunction(" + CKEditorFuncNum + ", '', 'فایلی انتخاب نشده است');</script>");
+
+                // 2. بررسی نوع فایل
+                var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif", ".pdf" };
+                var extension = Path.GetExtension(upload.FileName).ToLowerInvariant();
+
+                if (string.IsNullOrEmpty(extension) || !allowedExtensions.Contains(extension))
+                    return Content("<script>window.parent.CKEDITOR.tools.callFunction(" + CKEditorFuncNum + ", '', 'فرمت فایل مجاز نیست');</script>");
+
+                // 3. ایجاد پوشه مورد نظر
+                var uploadsFolder = Path.Combine("wwwroot", "uploads", "ckeditor");
+                if (!Directory.Exists(uploadsFolder))
+                    Directory.CreateDirectory(uploadsFolder);
+
+                // 4. ایجاد نام یکتا برای فایل
+                var fileName = Guid.NewGuid().ToString() + extension;
+                var filePath = Path.Combine(uploadsFolder, fileName);
+
+                // 5. ذخیره فایل
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await upload.CopyToAsync(stream);
+                }
+
+                // 6. برگرداندن نتیجه به CKEditor
+                var url = $"{Request.Scheme}://{Request.Host}/uploads/ckeditor/{fileName}";
+                return Content("<script>window.parent.CKEDITOR.tools.callFunction(" + CKEditorFuncNum + ", '" + url + "', 'فایل با موفقیت آپلود شد');</script>");
+            }
+            catch (Exception ex)
+            {
+                return Content("<script>window.parent.CKEDITOR.tools.callFunction(" + CKEditorFuncNum + ", '', 'خطا در آپلود فایل: " + ex.Message + "');</script>");
+            }
+        }
     }
 
    
