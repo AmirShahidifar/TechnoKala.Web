@@ -7,12 +7,12 @@ using System.Security.Claims;
 using TechnoKala.CoreLayer.Servises.Users;
 
 namespace TechnoKala.Pages.Auth
-{   
-    
+{
+
     [BindProperties]
     public class LoginModel : PageModel
     {
-    
+
         private IUserService _userService;
 
         public LoginModel(IUserService userService)
@@ -30,7 +30,7 @@ namespace TechnoKala.Pages.Auth
         {
         }
 
-        public async Task<IActionResult>  OnPost()
+        public async Task<IActionResult> OnPost()
         {
             if (!ModelState.IsValid)
             {
@@ -38,7 +38,7 @@ namespace TechnoKala.Pages.Auth
             }
             var Result = _userService.LoginUser(new CoreLayer.Dtos.LoginDtos() { password = password, email = email });
 
-            if(Result == null)
+            if (Result == null)
             {
                 ModelState.AddModelError("email", "مشخصات وارد شده وجود ندارد ");
                 return Page();
@@ -49,7 +49,7 @@ namespace TechnoKala.Pages.Auth
                 new Claim(ClaimTypes.Name,Result.lastname)
             };
 
-            var identity = new ClaimsIdentity(claims,CookieAuthenticationDefaults.AuthenticationScheme);
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var ClaimPrincipal = new ClaimsPrincipal(identity);
             HttpContext.SignInAsync(ClaimPrincipal);
             return Redirect("/Index");

@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.FileProviders;
-using System.ComponentModel.DataAnnotations;
-using TechnoKala.CoreLayer.Dtos;
+﻿using System.ComponentModel.DataAnnotations;
 using TechnoKala.CoreLayer.Dtos.Blogs;
 
 namespace TechnoKala.Areas.Panel.Model.Blog
@@ -12,7 +10,7 @@ namespace TechnoKala.Areas.Panel.Model.Blog
         public string description { get; set; }
         public string blog_text { get; set; }
         public string slug { get; set; }
-       
+
         [Display(Name = "تصویر")]
         public IFormFile imageFile { get; set; }
         public string image { get; set; }
@@ -26,7 +24,7 @@ namespace TechnoKala.Areas.Panel.Model.Blog
                 description = description,
                 slug = title,
                 blog_text = blog_text,
-                image = image, 
+                image = image,
                 category_id = category_id,
 
             };

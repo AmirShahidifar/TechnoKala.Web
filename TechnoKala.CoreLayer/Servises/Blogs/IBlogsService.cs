@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TechnoKala.CoreLayer.Dtos;
+﻿using TechnoKala.CoreLayer.Dtos;
 using TechnoKala.CoreLayer.Dtos.Blogs;
 using X.PagedList;
 
 namespace TechnoKala.CoreLayer.Servises.Blogs
 {
-   public interface IBlogsService
+    public interface IBlogsService
     {
         OperationResult CreateBlogsDtos(CreateBlogsDtos command);
         OperationResult EditBlogsDtos(EditBlogsDtos command);

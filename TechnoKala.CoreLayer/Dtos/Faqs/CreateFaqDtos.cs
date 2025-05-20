@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TechnoKala.CoreLayer.Dtos.Faqs
+﻿namespace TechnoKala.CoreLayer.Dtos.Faqs
 {
-   public class CreateFaqDtos
+    public class CreateFaqDtos
     {
 
         public string title { get; set; }

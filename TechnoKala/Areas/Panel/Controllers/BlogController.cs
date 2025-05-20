@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TechnoKala.Areas.Panel.Model.Blog;
-using TechnoKala.Areas.Panel.Model.BlogCategory;
 using TechnoKala.CoreLayer.Servises.Blogs;
-using TechnoKala.CoreLayer.Servises.Blogs_Categories;
-using TechnoKala.DaytaLayer.Entities;
 
 namespace TechnoKala.Areas.Panel.Controllers
 {
@@ -11,8 +8,8 @@ namespace TechnoKala.Areas.Panel.Controllers
     public class BlogController : Controller
     {
         private readonly IBlogsService _blogsService;
-   
-    
+
+
         public BlogController(IBlogsService blogsService)
         {
             _blogsService = blogsService;
@@ -69,7 +66,7 @@ namespace TechnoKala.Areas.Panel.Controllers
         public IActionResult Edit(int id)
         {
             var blogs = _blogsService.GetBlogsBy(id);
-            
+
             var model = new EditViewModel()
             {
                 id = blogs.id,
@@ -148,8 +145,7 @@ namespace TechnoKala.Areas.Panel.Controllers
         }
     }
 
-   
 
 
-    }
- 
+
+}

@@ -1,20 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TechnoKala.CoreLayer.Dtos;
+﻿using TechnoKala.CoreLayer.Dtos;
 using TechnoKala.DaytaLayer.Contex;
-using TechnoKala.DaytaLayer.Entities;
 
 
 namespace TechnoKala.CoreLayer.Servises.Users
 {
 
-  public class UserService : IUserService
+    public class UserService : IUserService
     {
-    private readonly AppDbContex _contex;
+        private readonly AppDbContex _contex;
 
         public UserService(AppDbContex contex)
         {
@@ -55,13 +48,13 @@ namespace TechnoKala.CoreLayer.Servises.Users
                 _contex.SaveChanges();
                 return OperationResult.Success();
             }
-            }
-        
-             public UserDto LoginUser(LoginDtos loginDtos)
+        }
+
+        public UserDto LoginUser(LoginDtos loginDtos)
         {
             var User = _contex.users.FirstOrDefault(u => u.email == loginDtos.email && u.password == loginDtos.password);
 
-            if(User == null)
+            if (User == null)
             {
                 return null;
             }
@@ -72,22 +65,22 @@ namespace TechnoKala.CoreLayer.Servises.Users
                     firstname = User.firstname,
                     lastname = User.lastname,
                     email = User.email,
-                  
+
                 };
                 return userdto;
             }
 
 
-     
-          
 
-          
+
+
+
         }
 
 
 
 
     }
-    }
+}
 
 

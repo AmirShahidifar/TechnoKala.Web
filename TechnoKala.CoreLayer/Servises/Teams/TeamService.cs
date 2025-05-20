@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TechnoKala.CoreLayer.Dtos.Blogs;
-using TechnoKala.CoreLayer.Dtos.Teams;
+﻿using TechnoKala.CoreLayer.Dtos.Teams;
 using TechnoKala.CoreLayer.Mapper;
 using TechnoKala.DaytaLayer.Contex;
 using X.PagedList;
@@ -91,11 +85,11 @@ namespace TechnoKala.CoreLayer.Servises.Teams
             return teams == null ? null : new GetAllTeamDtos
             {
                 id = teams.id,
-               
+
                 title = teams.title,
                 image = teams.image,
                 fullname = teams.fullname,
-                
+
             };
 
         }

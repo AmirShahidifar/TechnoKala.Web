@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using TechnoKala.CoreLayer.Dtos;
 using TechnoKala.CoreLayer.Dtos.Faqs;
 
 namespace TechnoKala.Areas.Panel.Model.Faq

@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TechnoKala.Areas.Panel.Model.BlogCategory;
-using TechnoKala.CoreLayer.Dtos;
 using TechnoKala.CoreLayer.Servises.Blogs_Categories;
-using TechnoKala.DaytaLayer.Entities;
-using X.PagedList.Extensions;
 
 namespace TechnoKala.Areas.Panel.Controllers
 {
@@ -22,13 +19,13 @@ namespace TechnoKala.Areas.Panel.Controllers
         {
             var allCategories = _blogs_CategoryService.GetAllCategories();
 
-           
+
 
             return View(allCategories);
         }
         public IActionResult Add()
         {
-         var child = _blogs_CategoryService.GetAllCategories();
+            var child = _blogs_CategoryService.GetAllCategories();
             ViewBag.child = child;
             return View();
         }
@@ -46,7 +43,7 @@ namespace TechnoKala.Areas.Panel.Controllers
             ViewBag.getAllCategory = getAllCategory;
             if (blog_category == null)
             {
-                return RedirectToAction("Index"); 
+                return RedirectToAction("Index");
             }
             var model = new EditCategoryViewModel()
             {
@@ -57,7 +54,7 @@ namespace TechnoKala.Areas.Panel.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult Edit(int id , EditCategoryViewModel editmodel)
+        public IActionResult Edit(int id, EditCategoryViewModel editmodel)
         {
             if (editmodel == null)
             {
@@ -73,11 +70,11 @@ namespace TechnoKala.Areas.Panel.Controllers
 
             if (resault.Status != CoreLayer.OperationResultStatus.Success)
             {
-  
-            ModelState.AddModelError(nameof(editmodel.name), resault.Message); 
+
+                ModelState.AddModelError(nameof(editmodel.name), resault.Message);
                 return View(editmodel);
             }
-             
+
             return RedirectToAction("Index");
         }
 

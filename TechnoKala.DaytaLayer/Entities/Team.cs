@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace TechnoKala.DaytaLayer.Entities
 {
-   public class Team : BaseEntiti
+    public class Team : BaseEntiti
     {
         [Required]
         public string fullname { get; set; }
@@ -16,6 +11,6 @@ namespace TechnoKala.DaytaLayer.Entities
         public string image { get; set; }
         [Required]
         public string title { get; set; }
-   
+
     }
 }

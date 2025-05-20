@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TechnoKala.CoreLayer.Dtos.Teams
+﻿namespace TechnoKala.CoreLayer.Dtos.Teams
 {
-   public class CreateTeamDtos
+    public class CreateTeamDtos
     {
 
 
@@ -15,7 +8,7 @@ namespace TechnoKala.CoreLayer.Dtos.Teams
 
 
         public string image { get; set; }
-  
+
         public string title { get; set; }
     }
 }

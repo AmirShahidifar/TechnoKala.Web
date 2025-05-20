@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TechnoKala.CoreLayer
+﻿namespace TechnoKala.CoreLayer
 {
-  public class OperationResult
+    public class OperationResult
     {
         public string Message { get; set; }
         public OperationResultStatus Status { get; set; }

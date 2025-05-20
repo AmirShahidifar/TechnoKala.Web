@@ -1,9 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using System.ComponentModel.DataAnnotations;
 using TechnoKala.CoreLayer;
 using TechnoKala.CoreLayer.Dtos;
@@ -36,7 +32,8 @@ namespace TechnoKala.Pages.Auth
         {
         }
 
-        public IActionResult OnPost() {
+        public IActionResult OnPost()
+        {
             var UserRegister = _userService.RegisterUser(new UserRegisterDtos()
             {
                 firstname = firstname,
@@ -47,16 +44,16 @@ namespace TechnoKala.Pages.Auth
 
 
             });
-            if(UserRegister.Status == OperationResultStatus.Error)
+            if (UserRegister.Status == OperationResultStatus.Error)
             {
-                
-                if (UserRegister.Message.Contains("نام کاربری")) 
-    {
+
+                if (UserRegister.Message.Contains("نام کاربری"))
+                {
                     ModelState.AddModelError("email", UserRegister.Message);
                 }
 
-                else if (UserRegister.Message.Contains("رمز عبور")) 
-    {
+                else if (UserRegister.Message.Contains("رمز عبور"))
+                {
                     ModelState.AddModelError("password", UserRegister.Message);
                 }
                 return Page();

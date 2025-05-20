@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TechnoKala.CoreLayer.Dtos
+﻿namespace TechnoKala.CoreLayer.Dtos
 {
-  public  class BlogsCategoryDtos : CreateCategoryDtos
+    public class BlogsCategoryDtos : CreateCategoryDtos
     {
         public int id { get; set; }
 
@@ -18,7 +12,7 @@ namespace TechnoKala.CoreLayer.Dtos
         public string parent_name { get; set; }
 
     }
-    public class EditCategoryDtos 
+    public class EditCategoryDtos
     {
         public int id { get; set; }
         public string name { get; set; }

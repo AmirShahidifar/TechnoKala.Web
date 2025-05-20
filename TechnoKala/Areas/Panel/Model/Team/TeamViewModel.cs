@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using TechnoKala.CoreLayer.Dtos.Blogs;
 using TechnoKala.CoreLayer.Dtos.Teams;
 
 namespace TechnoKala.Areas.Panel.Model.Team
@@ -15,7 +14,7 @@ namespace TechnoKala.Areas.Panel.Model.Team
         [Display(Name = "تصویر")]
         public IFormFile imageFile { get; set; }
         public string image { get; set; }
-        
+
 
         public CreateTeamDtos MapToDto()
         {
@@ -24,7 +23,7 @@ namespace TechnoKala.Areas.Panel.Model.Team
                 fullname = fullname,
                 title = title,
                 image = image,
-              
+
 
             };
         }

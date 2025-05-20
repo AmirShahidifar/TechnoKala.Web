@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TechnoKala.Areas.Panel.Model.Blog;
 using TechnoKala.Areas.Panel.Model.Faq;
 using TechnoKala.CoreLayer.Servises.Faqs;
 
@@ -8,7 +7,7 @@ namespace TechnoKala.Areas.Panel.Controllers
     [Area("Panel")]
     public class FaqController : Controller
     {
-     
+
 
         private readonly IFaqService _faqService;
 
@@ -23,12 +22,12 @@ namespace TechnoKala.Areas.Panel.Controllers
             int pageNumber = (page ?? 1); // شماره صفحه، اگر null باشد، صفحه اول
 
             var result = _faqService.FaqDtos(pageNumber, pageSize);
-          
+
             return View(result);
         }
         public IActionResult Add()
         {
-          
+
             return View();
 
         }
@@ -80,6 +79,6 @@ namespace TechnoKala.Areas.Panel.Controllers
             return RedirectToAction("Index");
         }
 
-     
+
     }
 }

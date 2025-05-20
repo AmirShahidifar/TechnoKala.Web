@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TechnoKala.CoreLayer.Dtos;
+﻿using TechnoKala.CoreLayer.Dtos;
 using TechnoKala.DaytaLayer.Entities;
 
 namespace TechnoKala.CoreLayer.Mapper
 {
-   public class BlogCategoryMapper
+    public class BlogCategoryMapper
     {
         public static BlogsCategoryDtos Map(Blog_Category blog_Category)
         {

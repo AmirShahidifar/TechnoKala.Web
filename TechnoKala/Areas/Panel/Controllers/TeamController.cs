@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Drawing;
 using TechnoKala.Areas.Panel.Model.Team;
-using TechnoKala.CoreLayer.Dtos.Teams;
-using TechnoKala.CoreLayer.Servises.Blogs;
 using TechnoKala.CoreLayer.Servises.Teams;
 
 namespace TechnoKala.Areas.Panel.Controllers
@@ -23,16 +20,16 @@ namespace TechnoKala.Areas.Panel.Controllers
             int pageNumber = (page ?? 1); // شماره صفحه، اگر null باشد، صفحه اول
 
             var result = _teamService.GetAllTeamDtos(pageNumber, pageSize);
-           
 
-  
+
+
             return View(result);
         }
 
         public IActionResult Add()
         {
-          
-           
+
+
             return View();
 
         }
@@ -72,10 +69,10 @@ namespace TechnoKala.Areas.Panel.Controllers
             var model = new EditViewModel()
             {
                 fullname = teams.fullname,
-              CurrentImagePath = teams.image,
+                CurrentImagePath = teams.image,
                 id = teams.id,
                 title = teams.title,
-               
+
             };
             return View(model);
 

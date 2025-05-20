@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace TechnoKala.Areas.Panel.Model.Team
+﻿namespace TechnoKala.Areas.Panel.Model.Team
 {
     public class EditViewModel
     {

@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TechnoKala.CoreLayer.Dtos.Blogs;
-using TechnoKala.CoreLayer.Dtos.Faqs;
+﻿using TechnoKala.CoreLayer.Dtos.Faqs;
 using TechnoKala.CoreLayer.Mapper;
 using TechnoKala.DaytaLayer.Contex;
-using TechnoKala.DaytaLayer.Entities;
 using X.PagedList;
 using X.PagedList.Extensions;
 
@@ -53,7 +46,7 @@ namespace TechnoKala.CoreLayer.Servises.Faqs
                      id = Faqs.id,
                      title = Faqs.title,
                      description = Faqs.description,
-            
+
                  })
                  .OrderBy(b => b.id); // مرتب‌سازی بر اساس Id یا هر فیلد دیگر
 
@@ -66,11 +59,11 @@ namespace TechnoKala.CoreLayer.Servises.Faqs
             return faqs == null ? null : new FaqDtos
             {
                 id = faqs.id,
-            
+
                 title = faqs.title,
-      
+
                 description = faqs.description,
-              
+
             };
         }
     }

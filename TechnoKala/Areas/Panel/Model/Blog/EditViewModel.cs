@@ -1,16 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace TechnoKala.Areas.Panel.Model.Blog
+﻿namespace TechnoKala.Areas.Panel.Model.Blog
 {
     public class EditViewModel
     {
 
         public int id { get; set; }
 
-      
+
         public string title { get; set; }
         public string description { get; set; }
 
-    
+
     }
 }

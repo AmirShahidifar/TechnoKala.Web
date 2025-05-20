@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace TechnoKala.DaytaLayer.Entities
 {
-   public class Users : BaseEntiti
+    public class Users : BaseEntiti
     {
         [Required]
         public string firstname { get; set; }
@@ -19,7 +14,7 @@ namespace TechnoKala.DaytaLayer.Entities
         public string password { get; set; }
 
 
-        
+
 
     }
 }

@@ -1,15 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using X.PagedList;
-using System.Threading.Tasks;
-using TechnoKala.CoreLayer.Dtos;
+﻿using TechnoKala.CoreLayer.Dtos;
 using TechnoKala.CoreLayer.Mapper;
 using TechnoKala.DaytaLayer.Contex;
 using TechnoKala.DaytaLayer.Entities;
-using X.PagedList;
 using X.PagedList.Extensions;
 
 namespace TechnoKala.CoreLayer.Servises.Blogs_Categories
@@ -24,12 +16,13 @@ namespace TechnoKala.CoreLayer.Servises.Blogs_Categories
             _context = context;
         }
 
-  
+
 
         public OperationResult CreateCategory(CreateCategoryDtos command)
         {
 
-            var blog_category = new Blog_Category() {
+            var blog_category = new Blog_Category()
+            {
                 name = command.name,
                 parent_id = command.parent_id,
             };
@@ -37,8 +30,8 @@ namespace TechnoKala.CoreLayer.Servises.Blogs_Categories
             _context.blog_Categories.Add(blog_category);
             _context.SaveChanges();
             return OperationResult.Success();
-            
-     
+
+
         }
 
         //public OperationResult DleteCategory(DleteCategoryDtos dleteCategoryDtos)
@@ -133,6 +126,6 @@ namespace TechnoKala.CoreLayer.Servises.Blogs_Categories
             return OperationResult.Success();
         }
 
-     
+
     }
 }

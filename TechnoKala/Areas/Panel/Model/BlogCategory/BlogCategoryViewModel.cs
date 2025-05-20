@@ -16,10 +16,10 @@ namespace TechnoKala.Areas.Panel.Model.BlogCategory
             {
                 name = name,
                 parent_id = parent_id,
-              
+
             };
         }
     }
 
-  
+
 }

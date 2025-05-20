@@ -1,14 +1,6 @@
 ﻿using Ganss.Xss;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
 using TechnoKala.CoreLayer.Dtos;
 using TechnoKala.CoreLayer.Dtos.Blogs;
-using TechnoKala.CoreLayer.Mapper;
 using TechnoKala.DaytaLayer.Contex;
 using TechnoKala.DaytaLayer.Entities;
 using X.PagedList;
@@ -16,7 +8,7 @@ using X.PagedList.Extensions;
 
 namespace TechnoKala.CoreLayer.Servises.Blogs
 {
- public class BlogsService : IBlogsService
+    public class BlogsService : IBlogsService
     {
         private readonly AppDbContex _contex;
 
@@ -31,12 +23,12 @@ namespace TechnoKala.CoreLayer.Servises.Blogs
 
             var blogs = new Blog
             {
-              title = command.title,
-            category_id = command.category_id,
-            description = command.description,
-            blog_text = sanitizedContent,
-            image = command.image,
-            slug = command.slug,
+                title = command.title,
+                category_id = command.category_id,
+                description = command.description,
+                blog_text = sanitizedContent,
+                image = command.image,
+                slug = command.slug,
             };
 
 
@@ -106,13 +98,13 @@ namespace TechnoKala.CoreLayer.Servises.Blogs
 
         public List<BlogsCategoryDtos> GetBlogsCategories()
         {
-            return _contex.blog_Categories.Where(c=>c.parent_id != null).Select(category => new BlogsCategoryDtos
+            return _contex.blog_Categories.Where(c => c.parent_id != null).Select(category => new BlogsCategoryDtos
             {
                 name = category.name,
                 id = category.id,
 
-            }) .ToList();
-               
+            }).ToList();
+
         }
     }
 }

@@ -1,8 +1,5 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Configuration;
 using TechnoKala.CoreLayer.Servises.Blogs;
 using TechnoKala.CoreLayer.Servises.Blogs_Categories;
 using TechnoKala.CoreLayer.Servises.Faqs;
