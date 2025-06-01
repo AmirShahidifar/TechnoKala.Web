@@ -1,0 +1,18 @@
+﻿@model TechnoKala.CoreLayer.Dtos.CreatePermissionDto
+
+@{
+    ViewData["Title"] = "ایجاد دسترسی جدید";
+}
+
+<h2>ایجاد دسترسی</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success">ثبت</button>
+    <a asp-action="Index" class="btn btn-secondary">بازگشت</a>
+</form>

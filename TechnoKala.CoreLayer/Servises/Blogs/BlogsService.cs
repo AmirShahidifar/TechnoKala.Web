@@ -63,7 +63,7 @@ namespace TechnoKala.CoreLayer.Servises.Blogs
         public IPagedList<GetAllBlogDtos> GetAllBlogDtos(int pageNumber, int pageSize)
         {
             var blogsQuery = _contex.blogs
-                .Select(blog => new GetAllBlogDtos
+                .Where(b => b.is_dleated == false).Select(blog => new GetAllBlogDtos
                 {
                     id = blog.id,
                     title = blog.title,
@@ -104,6 +104,20 @@ namespace TechnoKala.CoreLayer.Servises.Blogs
                 id = category.id,
 
             }).ToList();
+
+        }
+
+        public OperationResult DeleteBlogs(int id)
+        {
+            var resualt = _contex.blogs.FirstOrDefault(b=>b.id == id);
+            if (resualt == null)
+
+                OperationResult.NotFound();
+
+            resualt.is_dleated = true;
+            resualt.dleated_at = DateTime.Now;
+            _contex.SaveChanges();
+            return OperationResult.Success();
 
         }
     }

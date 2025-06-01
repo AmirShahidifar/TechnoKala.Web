@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TechnoKala.Areas.Panel.Model.BlogCategory;
 using TechnoKala.CoreLayer.Servises.Blogs_Categories;
 
 namespace TechnoKala.Areas.Panel.Controllers
 {
     [Area("Panel")]
+    [Authorize(AuthenticationSchemes = "AdminAuth")]
     public class BlogCategoryController : Controller
     {
         private readonly IBlogs_CategoryService _blogs_CategoryService;

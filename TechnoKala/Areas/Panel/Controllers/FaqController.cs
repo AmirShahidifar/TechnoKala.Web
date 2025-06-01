@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TechnoKala.Areas.Panel.Model.Faq;
 using TechnoKala.CoreLayer.Servises.Faqs;
 
 namespace TechnoKala.Areas.Panel.Controllers
 {
     [Area("Panel")]
+    [Authorize(AuthenticationSchemes = "AdminAuth")]
     public class FaqController : Controller
     {
 

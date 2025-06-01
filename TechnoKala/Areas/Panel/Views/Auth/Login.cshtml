@@ -1,0 +1,19 @@
+﻿@model TechnoKala.CoreLayer.Dtos.Admins.LoginAdminDto
+
+<h2>ورود ادمین</h2>
+
+<form asp-action="Login" method="post">
+    <div>
+        <label>نام کاربری:</label>
+        <input asp-for="Username" />
+        <span asp-validation-for="Username"></span>
+    </div>
+
+    <div>
+        <label>رمز عبور:</label>
+        <input asp-for="Password" type="password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+
+    <button type="submit">ورود</button>
+</form>

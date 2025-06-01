@@ -36,6 +36,17 @@ builder.Services.AddAuthentication(option =>
     option.ExpireTimeSpan = TimeSpan.FromDays(1);
 });
 
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = "AdminAuth";
+})
+.AddCookie("AdminAuth", options =>
+{
+    options.LoginPath = "/Panel/Auth/Login";
+    options.LogoutPath = "/Panel/Auth/Logout";
+    options.AccessDeniedPath = "/Panel/Auth/AccessDenied";
+});
+
 
 var app = builder.Build();
 

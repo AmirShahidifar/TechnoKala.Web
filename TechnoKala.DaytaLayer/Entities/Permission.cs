@@ -2,15 +2,14 @@
 
 namespace TechnoKala.DataLayer.Entities;
 
-public class Role
+public class Permission
 {
     [Key]
     public Guid Id { get; set; }
 
     [Required]
-    [MaxLength(100)]
-    public string Title { get; set; }
+    [MaxLength(150)]
+    public string Name { get; set; }
 
-    public ICollection<Admin> Admins { get; set; }
     public ICollection<RolePermission> RolePermissions { get; set; }
 }

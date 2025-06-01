@@ -10,6 +10,7 @@ namespace TechnoKala.CoreLayer.Servises.Blogs
         OperationResult EditBlogsDtos(EditBlogsDtos command);
         IPagedList<GetAllBlogDtos> GetAllBlogDtos(int pageNumber, int pageSize);
         GetAllBlogDtos GetBlogsBy(int id);
+        OperationResult DeleteBlogs(int id);
         List<BlogsCategoryDtos> GetBlogsCategories();
 
     }

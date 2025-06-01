@@ -2,6 +2,7 @@
 @using X.PagedList.Mvc.Core
 @{
     var blogsCategories = ViewBag.categories as List<TechnoKala.CoreLayer.Dtos.BlogsCategoryDtos>;
+    var text = ViewBag.text;
 }
 
 <div class="content-wrapper" style="min-height: 916.281px;">
@@ -36,6 +37,7 @@
                                     <a asp-action="Add" asp-controller="Blog" >
                                         <button type="submit" class="btn btn-primary">افزودن</button>
                                     </a>
+                                    <span>@text</span>
                                 </div>
                             </div>
                         </div>
@@ -85,6 +87,7 @@
 
                                         <td>
                                             <a asp-controller="Blog" asp-action="Edit" asp-route-id="@blogs.id" class="btn btn-outline-primary">ویرایش</a>
+                                            <a asp-controller="Blog" asp-action="Delete" asp-route-id="@blogs.id" class="btn btn-outline-primary">حذف</a>
                                         </td>
                                     </tr>
 

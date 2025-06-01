@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TechnoKala.Areas.Panel.Model.Blog;
 using TechnoKala.CoreLayer.Servises.Blogs;
 
 namespace TechnoKala.Areas.Panel.Controllers
 {
     [Area("Panel")]
+    [Authorize(AuthenticationSchemes = "AdminAuth")]
     public class BlogController : Controller
     {
         private readonly IBlogsService _blogsService;
@@ -142,6 +144,15 @@ namespace TechnoKala.Areas.Panel.Controllers
             {
                 return Content("<script>window.parent.CKEDITOR.tools.callFunction(" + CKEditorFuncNum + ", '', 'خطا در آپلود فایل: " + ex.Message + "');</script>");
             }
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var blogs = _blogsService.DeleteBlogs(id);
+            var text = "حذف با موفقیت انجام شد";
+            ViewBag.text = text;
+            return RedirectToAction("Index");
+
         }
     }
 
